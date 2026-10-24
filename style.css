@@ -1,0 +1,579 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --navy-bg: #0b1728;
+    --card-bg: #ffffff;
+    --gold: #c5a059;
+    --gold-dark: #99742a;
+    --gold-border: rgba(197, 160, 89, 0.4);
+    --text-dark: #1b2838;
+    --text-muted: #718096;
+    --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--navy-bg);
+    font-family: 'Amiri', serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* خلفية النجوم المتحركة الخفيفة */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+        radial-gradient(rgba(197, 160, 89, 0.15) 1px, transparent 1px),
+        radial-gradient(rgba(197, 160, 89, 0.08) 0.8px, transparent 0.8px);
+    background-size: 60px 60px, 90px 90px;
+    background-position: 0 0, 30px 45px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ==================== زر الموسيقى الحَي ==================== */
+.music-controller {
+    position: fixed;
+    top: calc(18px + env(safe-area-inset-top));
+    right: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    z-index: 99999;
+    cursor: pointer;
+}
+
+.music-disk {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+}
+
+.music-disk svg {
+    width: 24px;
+    height: 24px;
+}
+
+.music-txt {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.disk-spinning {
+    animation: spinDisk 4s linear infinite;
+}
+
+@keyframes spinDisk {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== 1. شاشة البوابة الفاخرة ==================== */
+.gateway-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background-color: var(--navy-bg);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
+}
+
+.gateway-overlay.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gateway-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 380px;
+    border-radius: 24px;
+    padding: 38px 22px;
+    text-align: center;
+    border: 1.5px solid var(--gold);
+    box-shadow: var(--shadow-luxury);
+    position: relative;
+    transform: scale(0.95);
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+    to { transform: scale(1); }
+}
+
+.card-ornament {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 4px;
+}
+
+.gateway-ring-pulse {
+    font-size: 2.3rem;
+    margin: 10px 0 6px 0;
+    animation: pulseRing 2s infinite ease-in-out;
+}
+
+@keyframes pulseRing {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+.gateway-en-names {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.35rem, 5vw, 1.6rem);
+    color: var(--text-dark);
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.gateway-ar-names {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 1.7rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.gold-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    letter-spacing: 5px;
+}
+
+.gateway-date-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+}
+
+.gateway-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 26px;
+    font-weight: 600;
+}
+
+.gateway-open-btn {
+    background: var(--navy-bg);
+    color: #ffffff;
+    border: 1px solid var(--gold);
+    padding: 14px 40px;
+    border-radius: 35px;
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(11, 23, 40, 0.4);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gateway-open-btn:hover {
+    background: #132743;
+    transform: translateY(-2px);
+}
+
+.gateway-open-btn:active {
+    transform: scale(0.96);
+}
+
+/* ==================== 2. محتوى الدعوة الرئيسي الفاخر ==================== */
+.invitation-main-container {
+    width: 100%;
+    max-width: 440px;
+    min-height: 100vh;
+    background-color: var(--card-bg);
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تأثيرات الظهور عند التمرير (Reveal Animations) */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.invitation-header-box {
+    padding: 35px 20px 15px 20px;
+    text-align: center;
+}
+
+.header-inner-frame {
+    border: 1.5px solid var(--gold);
+    border-radius: 20px;
+    padding: 26px 16px;
+    position: relative;
+    background: #fffdf9;
+    box-shadow: 0 5px 20px rgba(197, 160, 89, 0.08);
+}
+
+.corner-star {
+    position: absolute;
+    color: var(--gold);
+    font-size: 0.95rem;
+}
+.top-left { top: 10px; right: 12px; }
+.top-right { top: 10px; left: 12px; }
+.bottom-left { bottom: 10px; right: 12px; }
+.bottom-right { bottom: 10px; left: 12px; }
+
+.floral-top, .floral-bottom {
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 6px;
+}
+
+.main-ar-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 2.5rem;
+    color: var(--navy-bg);
+    line-height: 1.2;
+}
+
+.and-symbol {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    display: block;
+    margin: 3px 0;
+}
+
+/* صورة العروسين */
+.couple-photo-section {
+    padding: 0 18px 22px 18px;
+}
+
+.photo-frame-card {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease;
+}
+
+.photo-frame-card:hover {
+    transform: scale(1.01);
+}
+
+.photo-frame-card img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+/* الأقسام العامة */
+.section-card {
+    padding: 38px 20px;
+    text-align: center;
+    border-top: 1px solid #f0eae1;
+}
+
+.card-tag {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.74rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.gold-sep {
+    width: 60px;
+    height: 1.5px;
+    background: var(--gold);
+    margin: 14px auto 24px auto;
+    opacity: 0.85;
+}
+
+/* العداد */
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+    direction: ltr;
+}
+
+.c-box {
+    background: #faf8f5;
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 14px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.c-num {
+    font-family: 'Cinzel', serif;
+    font-size: 1.45rem;
+    color: var(--navy-bg);
+    font-weight: 700;
+}
+
+.c-lbl {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+    color: var(--gold-dark);
+    margin-top: 3px;
+}
+
+/* التقويم */
+.calendar-box {
+    background: #ffffff;
+    border: 1px solid var(--gold-border);
+    border-radius: 18px;
+    padding: 20px 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+}
+
+.cal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    letter-spacing: 2.5px;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 10px;
+    direction: ltr;
+}
+
+.cal-header-day {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.cal-day-cell {
+    font-size: 0.92rem;
+    color: #4a5568;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: 500;
+}
+
+.cal-day-cell.wedding-highlight {
+    background: var(--navy-bg);
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 12px rgba(11, 23, 40, 0.35);
+}
+
+/* الكنيسة والقاعة */
+.venue-item-box {
+    background: #faf8f5;
+    border: 1px solid var(--gold-border);
+    border-radius: 16px;
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.venue-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.venue-desc-ar {
+    font-size: 1.2rem;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.venue-time {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    direction: ltr;
+    font-weight: 500;
+}
+
+.map-gold-btn {
+    display: block;
+    width: 100%;
+    background: var(--navy-bg);
+    color: #ffffff;
+    border: 1px solid var(--gold);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.map-gold-btn:active {
+    transform: scale(0.97);
+    background: #132743;
+}
+
+/* سجل التبريكات */
+.wishes-form input, .wishes-form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+    border: 1px solid var(--gold-border);
+    border-radius: 10px;
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    background: #faf8f5;
+    outline: none;
+    color: var(--text-dark);
+    transition: border-color 0.2s;
+}
+
+.wishes-form input:focus, .wishes-form textarea:focus {
+    border-color: var(--gold);
+    background: #ffffff;
+}
+
+.wishes-stream {
+    margin-top: 18px;
+    max-height: 250px;
+    overflow-y: auto;
+    direction: rtl;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wish-card {
+    background: #faf8f5;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border-right: 4.5px solid var(--gold);
+    border-top: 1px solid #f0eae1;
+    border-bottom: 1px solid #f0eae1;
+    border-left: 1px solid #f0eae1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.wish-name {
+    font-weight: bold;
+    color: var(--gold-dark);
+    font-size: 1.12rem;
+    margin-bottom: 2px;
+}
+
+.wish-msg {
+    color: var(--text-dark);
+    font-size: 1.08rem;
+    line-height: 1.6;
+}
+
+/* الخاتمة */
+.footer-box {
+    padding: 45px 20px;
+    text-align: center;
+    background: #faf8f5;
+    border-top: 1px solid #f0eae1;
+}
+
+.footer-names {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 2.6rem;
+    color: var(--gold);
+}
+
+.footer-text {
+    font-size: 1.02rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.footer-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.88rem;
+    color: var(--gold-dark);
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+}

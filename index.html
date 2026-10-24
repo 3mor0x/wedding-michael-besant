@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>دعوة زفاف مايكل & بسنت</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- زر الموسيقى الحي النابض -->
+    <div class="music-controller" onclick="toggleAudio()" id="musicToggleBtn" title="تشغيل / إيقاف الموسيقى">
+        <div class="music-disk" id="musicDisk">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2,2"/>
+                <circle cx="12" cy="12" r="3" fill="currentColor"/>
+            </svg>
+        </div>
+        <span class="music-txt">MUSIC</span>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 1. شاشة البوابة الفاخرة (الظرف/بوابة الدخول) -->
+    <section class="gateway-overlay" id="gatewayScreen">
+        <div class="gateway-card animate-pop">
+            <div class="card-ornament">✧ ❖ ✧</div>
+            <div class="gateway-ring-pulse">💍</div>
+            <h1 class="gateway-en-names">MICHAEL & BESANT</h1>
+            <p class="gateway-ar-names">مَايكِل ❦ بَسَنت</p>
+            <div class="gold-stars">✦ ✦ ✦</div>
+            <p class="gateway-date-text">October 26, 2026</p>
+            <p class="gateway-subtitle">يُشرفان بدعوتكم لحضور حفل الزفاف</p>
+            <button class="gateway-open-btn" onclick="openInvitation()">
+                <span>فتح الدعوة</span> ✉️
+            </button>
+            <div class="card-ornament">✧ ❖ ✧</div>
+        </div>
+    </section>
+
+    <!-- 2. محتوى الدعوة الرئيسي الدايناميك -->
+    <main class="invitation-main-container" id="mainContent">
+        
+        <!-- الهيدر والأسماء -->
+        <header class="invitation-header-box reveal">
+            <div class="header-inner-frame">
+                <span class="corner-star top-left">✦</span>
+                <span class="corner-star top-right">✦</span>
+                <div class="floral-top">🌸 🕊️ 🌸</div>
+                <h2 class="main-ar-title">مَايكِل</h2>
+                <span class="and-symbol">&</span>
+                <h2 class="main-ar-title">بَسَنت</h2>
+                <div class="floral-bottom">✧ ✦ ✧</div>
+                <span class="corner-star bottom-left">✦</span>
+                <span class="corner-star bottom-right">✦</span>
+            </div>
+        </header>
+
+        <!-- صورة العروسين الرئيسية الحية -->
+        <section class="couple-photo-section reveal">
+            <div class="photo-frame-card">
+                <img src="couple-main.jpg" alt="Michael & Besant">
+            </div>
+        </section>
+
+        <!-- العداد التنازلي الحية والتقويم -->
+        <section class="section-card countdown-card reveal">
+            <span class="card-tag">COUNTING DOWN</span>
+            <h3 class="card-title">The Wedding Countdown</h3>
+            <div class="gold-sep"></div>
+
+            <div class="countdown-grid">
+                <div class="c-box">
+                    <span class="c-num" id="days">00</span>
+                    <span class="c-lbl">DAYS</span>
+                </div>
+                <div class="c-box">
+                    <span class="c-num" id="hours">00</span>
+                    <span class="c-lbl">HOURS</span>
+                </div>
+                <div class="c-box">
+                    <span class="c-num" id="minutes">00</span>
+                    <span class="c-lbl">MINUTES</span>
+                </div>
+                <div class="c-box">
+                    <span class="c-num" id="seconds">00</span>
+                    <span class="c-lbl">SECONDS</span>
+                </div>
+            </div>
+
+            <!-- التقويم المتفاعل -->
+            <div class="calendar-box">
+                <h4 class="cal-title">OCTOBER 2026</h4>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+        </section>
+
+        <!-- تفاصيل الكنيسة والقاعة الفخمة -->
+        <section class="section-card venues-card reveal">
+            <span class="card-tag">VENUES & SCHEDULE</span>
+            <h3 class="card-title">Wedding Celebration</h3>
+            <div class="gold-sep"></div>
+
+            <!-- الكنيسة -->
+            <div class="venue-item-box" style="margin-bottom: 20px;">
+                <h4 class="venue-name">⛪ Ceremony (Church)</h4>
+                <p class="venue-desc-ar">كنيسة مارجرجس ومار ابراهام - مصر الجديدة</p>
+                <p class="venue-time">From 06:00 PM to 07:00 PM</p>
+                <a href="https://maps.app.goo.gl/rcTJtP2fx8ie9Xqr5?g_st=aw" target="_blank" class="map-gold-btn">
+                    📍 CHURCH LOCATION MAP
+                </a>
+            </div>
+
+            <!-- القاعة -->
+            <div class="venue-item-box">
+                <h4 class="venue-name">🎉 Reception (Hall)</h4>
+                <p class="venue-desc-ar">قاعة لورامن</p>
+                <p class="venue-time">From 07:00 PM to 11:00 PM</p>
+                <a href="https://maps.app.goo.gl/HgsyQBfn4Pjraa7j7?g_st=aw" target="_blank" class="map-gold-btn">
+                    📍 HALL LOCATION MAP
+                </a>
+            </div>
+        </section>
+
+        <!-- سجل التبريكات المتفاعل (Live Wishes) -->
+        <section class="section-card wishes-card reveal">
+            <span class="card-tag">WARM BLESSINGS</span>
+            <h3 class="card-title">Send Your Wishes</h3>
+            <div class="gold-sep"></div>
+
+            <div class="wishes-form">
+                <input type="text" id="guestName" placeholder="Your Name / اسمك الكريم" required>
+                <textarea id="guestMessage" rows="3" placeholder="Leave a heartfelt message for Michael & Besant..." required></textarea>
+                <button onclick="addWish()" class="map-gold-btn send-btn">SEND BLESSING 🤍</button>
+            </div>
+            
+            <div class="wishes-stream" id="wishesFeed"></div>
+        </section>
+
+        <!-- الخاتمة الأنيقة -->
+        <footer class="footer-box reveal">
+            <h2 class="footer-names">Michael & Besant</h2>
+            <div class="gold-sep"></div>
+            <p class="footer-text">With hearts full of joy and love, we warmly invite you to celebrate our wedding.<br>Your presence will make our special day complete 🤍</p>
+            <p class="footer-date">Monday, October 26, 2026</p>
+            <p class="footer-brand">DIGITAL WEDDING INVITATION</p>
+        </footer>
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
