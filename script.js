@@ -3,7 +3,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-const wishesRef = database.ref('wishes/michael_besant');
+const wishesRef = database.ref('wishes/michael_bassant');
 
 const audio = document.getElementById('bg-music');
 const disk = document.getElementById('musicDisk');
@@ -42,7 +42,7 @@ function toggleAudio() {
     }
 }
 
-// تقويم أكتوبر 2026 الحى
+// تقويم نوفمبر 2026 (1 نوفمبر يبدأ يوم الأحد في عام 2026)
 function buildCalendar() {
     const grid = document.getElementById('calendarGrid');
     if (!grid) return;
@@ -56,21 +56,18 @@ function buildCalendar() {
         grid.appendChild(div);
     });
 
-    for (let i = 0; i < 4; i++) {
-        grid.appendChild(document.createElement('div'));
-    }
-
-    for (let d = 1; d <= 31; d++) {
+    // 1 نوفمبر 2026 يبدأ الأحد، فلا حاجة لخلايا فارغة في البداية
+    for (let d = 1; d <= 30; d++) {
         const cell = document.createElement('div');
         cell.className = 'cal-day-cell';
-        if (d === 26) cell.classList.add('wedding-highlight');
+        if (d === 16) cell.classList.add('wedding-highlight'); // تظليل يوم 16 نوفمبر
         cell.innerText = d;
         grid.appendChild(cell);
     }
 }
 
-// العداد التنازلي الحية (Live Countdown)
-const weddingTimestamp = new Date('October 26, 2026 19:00:00').getTime();
+// العداد التنازلي: 16 نوفمبر 2026 الساعة 7:00 مساءً
+const weddingTimestamp = new Date('November 16, 2026 19:00:00').getTime();
 
 setInterval(() => {
     const now = new Date().getTime();
@@ -94,7 +91,6 @@ setInterval(() => {
     }
 }, 1000);
 
-// تأثير ظهور الأقسام أثناء التمرير
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     
@@ -111,10 +107,9 @@ function initScrollReveal() {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // تشغيل فوري للتأكد
+    revealOnScroll();
 }
 
-// تبريكات Firebase الحية
 function addWish() {
     const nameInput = document.getElementById('guestName');
     const msgInput = document.getElementById('guestMessage');

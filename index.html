@@ -28,15 +28,15 @@
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 1. شاشة البوابة الفاخرة (الظرف/بوابة الدخول) -->
+    <!-- 1. شاشة البوابة الفاخرة -->
     <section class="gateway-overlay" id="gatewayScreen">
         <div class="gateway-card animate-pop">
             <div class="card-ornament">✧ ❖ ✧</div>
             <div class="gateway-ring-pulse">💍</div>
-            <h1 class="gateway-en-names">MICHAEL & BESANT</h1>
+            <h1 class="gateway-en-names">MICHAEL & BASSANT</h1>
             <p class="gateway-ar-names">مَايكِل ❦ بَسَنت</p>
             <div class="gold-stars">✦ ✦ ✦</div>
-            <p class="gateway-date-text">October 26, 2026</p>
+            <p class="gateway-date-text">November 16, 2026</p>
             <p class="gateway-subtitle">يُشرفان بدعوتكم لحضور حفل الزفاف</p>
             <button class="gateway-open-btn" onclick="openInvitation()">
                 <span>فتح الدعوة</span> ✉️
@@ -45,7 +45,7 @@
         </div>
     </section>
 
-    <!-- 2. محتوى الدعوة الرئيسي الدايناميك -->
+    <!-- 2. محتوى الدعوة الرئيسي -->
     <main class="invitation-main-container" id="mainContent">
         
         <!-- الهيدر والأسماء -->
@@ -63,14 +63,14 @@
             </div>
         </header>
 
-        <!-- صورة العروسين الرئيسية الحية -->
+        <!-- صورة العروسين الرئيسية -->
         <section class="couple-photo-section reveal">
             <div class="photo-frame-card">
-                <img src="couple-main.jpg" alt="Michael & Besant">
+                <img src="couple-main.jpg" alt="Michael & Bassant">
             </div>
         </section>
 
-        <!-- العداد التنازلي الحية والتقويم -->
+        <!-- العداد التنازلي والتقويم (نوفمبر 2026) -->
         <section class="section-card countdown-card reveal">
             <span class="card-tag">COUNTING DOWN</span>
             <h3 class="card-title">The Wedding Countdown</h3>
@@ -95,14 +95,14 @@
                 </div>
             </div>
 
-            <!-- التقويم المتفاعل -->
+            <!-- التقويم لشهر نوفمبر 2026 -->
             <div class="calendar-box">
-                <h4 class="cal-title">OCTOBER 2026</h4>
+                <h4 class="cal-title">NOVEMBER 2026</h4>
                 <div class="calendar-grid" id="calendarGrid"></div>
             </div>
         </section>
 
-        <!-- تفاصيل الكنيسة والقاعة الفخمة -->
+        <!-- تفاصيل الكنيسة والقاعة -->
         <section class="section-card venues-card reveal">
             <span class="card-tag">VENUES & SCHEDULE</span>
             <h3 class="card-title">Wedding Celebration</h3>
@@ -111,7 +111,7 @@
             <!-- الكنيسة -->
             <div class="venue-item-box" style="margin-bottom: 20px;">
                 <h4 class="venue-name">⛪ Ceremony (Church)</h4>
-                <p class="venue-desc-ar">كنيسة مارجرجس ومار ابراهام - مصر الجديدة</p>
+                <p class="venue-desc-ar">كنيسة مارجرجس والانبا ابرام هيليوبليس</p>
                 <p class="venue-time">From 06:00 PM to 07:00 PM</p>
                 <a href="https://maps.app.goo.gl/rcTJtP2fx8ie9Xqr5?g_st=aw" target="_blank" class="map-gold-btn">
                     📍 CHURCH LOCATION MAP
@@ -129,7 +129,7 @@
             </div>
         </section>
 
-        <!-- سجل التبريكات المتفاعل (Live Wishes) -->
+        <!-- سجل التبريكات -->
         <section class="section-card wishes-card reveal">
             <span class="card-tag">WARM BLESSINGS</span>
             <h3 class="card-title">Send Your Wishes</h3>
@@ -137,19 +137,19 @@
 
             <div class="wishes-form">
                 <input type="text" id="guestName" placeholder="Your Name / اسمك الكريم" required>
-                <textarea id="guestMessage" rows="3" placeholder="Leave a heartfelt message for Michael & Besant..." required></textarea>
+                <textarea id="guestMessage" rows="3" placeholder="Leave a heartfelt message for Michael & Bassant..." required></textarea>
                 <button onclick="addWish()" class="map-gold-btn send-btn">SEND BLESSING 🤍</button>
             </div>
             
             <div class="wishes-stream" id="wishesFeed"></div>
         </section>
 
-        <!-- الخاتمة الأنيقة -->
+        <!-- الخاتمة -->
         <footer class="footer-box reveal">
-            <h2 class="footer-names">Michael & Besant</h2>
+            <h2 class="footer-names">Michael & Bassant</h2>
             <div class="gold-sep"></div>
             <p class="footer-text">With hearts full of joy and love, we warmly invite you to celebrate our wedding.<br>Your presence will make our special day complete 🤍</p>
-            <p class="footer-date">Monday, October 26, 2026</p>
+            <p class="footer-date">Monday, November 16, 2026</p>
             <p class="footer-brand">DIGITAL WEDDING INVITATION</p>
         </footer>
 

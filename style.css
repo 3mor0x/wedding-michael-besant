@@ -32,7 +32,6 @@ body {
     position: relative;
 }
 
-/* خلفية النجوم المتحركة الخفيفة */
 body::before {
     content: '';
     position: fixed;
@@ -46,7 +45,7 @@ body::before {
     z-index: 1;
 }
 
-/* ==================== زر الموسيقى الحَي ==================== */
+/* زر الموسيقى */
 .music-controller {
     position: fixed;
     top: calc(18px + env(safe-area-inset-top));
@@ -94,7 +93,7 @@ body::before {
     to { transform: rotate(360deg); }
 }
 
-/* ==================== 1. شاشة البوابة الفاخرة ==================== */
+/* شاشة البوابة */
 .gateway-overlay {
     position: fixed;
     inset: 0;
@@ -153,7 +152,7 @@ body::before {
 
 .gateway-en-names {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1.35rem, 5vw, 1.6rem);
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
     color: var(--text-dark);
     letter-spacing: 2px;
     font-weight: 700;
@@ -215,7 +214,7 @@ body::before {
     transform: scale(0.96);
 }
 
-/* ==================== 2. محتوى الدعوة الرئيسي الفاخر ==================== */
+/* محتوى الدعوة */
 .invitation-main-container {
     width: 100%;
     max-width: 440px;
@@ -228,7 +227,6 @@ body::before {
     flex-direction: column;
 }
 
-/* تأثيرات الظهور عند التمرير (Reveal Animations) */
 .reveal {
     opacity: 0;
     transform: translateY(25px);
@@ -285,7 +283,6 @@ body::before {
     margin: 3px 0;
 }
 
-/* صورة العروسين */
 .couple-photo-section {
     padding: 0 18px 22px 18px;
 }
@@ -296,11 +293,6 @@ body::before {
     overflow: hidden;
     border: 1.5px solid var(--gold);
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    transition: transform 0.4s ease;
-}
-
-.photo-frame-card:hover {
-    transform: scale(1.01);
 }
 
 .photo-frame-card img {
@@ -311,7 +303,6 @@ body::before {
     display: block;
 }
 
-/* الأقسام العامة */
 .section-card {
     padding: 38px 20px;
     text-align: center;
@@ -343,7 +334,6 @@ body::before {
     opacity: 0.85;
 }
 
-/* العداد */
 .countdown-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -378,7 +368,6 @@ body::before {
     margin-top: 3px;
 }
 
-/* التقويم */
 .calendar-box {
     background: #ffffff;
     border: 1px solid var(--gold-border);
@@ -431,7 +420,6 @@ body::before {
     box-shadow: 0 4px 12px rgba(11, 23, 40, 0.35);
 }
 
-/* الكنيسة والقاعة */
 .venue-item-box {
     background: #faf8f5;
     border: 1px solid var(--gold-border);
@@ -478,15 +466,8 @@ body::before {
     border-radius: 8px;
     font-weight: 600;
     text-align: center;
-    transition: background 0.2s;
 }
 
-.map-gold-btn:active {
-    transform: scale(0.97);
-    background: #132743;
-}
-
-/* سجل التبريكات */
 .wishes-form input, .wishes-form textarea {
     width: 100%;
     padding: 13px 15px;
@@ -498,12 +479,6 @@ body::before {
     background: #faf8f5;
     outline: none;
     color: var(--text-dark);
-    transition: border-color 0.2s;
-}
-
-.wishes-form input:focus, .wishes-form textarea:focus {
-    border-color: var(--gold);
-    background: #ffffff;
 }
 
 .wishes-stream {
@@ -525,7 +500,6 @@ body::before {
     border-top: 1px solid #f0eae1;
     border-bottom: 1px solid #f0eae1;
     border-left: 1px solid #f0eae1;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
 .wish-name {
@@ -541,7 +515,6 @@ body::before {
     line-height: 1.6;
 }
 
-/* الخاتمة */
 .footer-box {
     padding: 45px 20px;
     text-align: center;
